@@ -36,6 +36,7 @@ public class CustomerServiceImpl implements ICustomerService {
                 .collect(Collectors.toList());
     }
 
+    @Override
     public List<AccountDto> getCustomerAccounts(long customerId) {
         CustomerAccounts customerAccounts = customerRepository.getById(customerId);
         return customerAccounts.getAccounts().stream()

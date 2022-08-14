@@ -2,7 +2,7 @@ package com.bankapplication.controller;
 
 import com.bankapplication.dto.AccountDto;
 import com.bankapplication.dto.CustomerDto;
-import com.bankapplication.service.customer.CustomerServiceImpl;
+import com.bankapplication.service.customer.ICustomerService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +18,7 @@ import java.util.List;
 @RequestMapping("/api/customers")
 public class CustomerController {
 
-    private final CustomerServiceImpl customerService;
+    private final ICustomerService customerService;
 
     @GetMapping("/")
     public ResponseEntity<List<CustomerDto>> getAllCustomer() {

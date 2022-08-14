@@ -1,5 +1,6 @@
 package com.bankapplication.service.customer;
 
+import com.bankapplication.dto.AccountDto;
 import com.bankapplication.dto.CustomerDto;
 
 import java.util.List;
@@ -10,5 +11,6 @@ public interface ICustomerService {
 
     List<CustomerDto> getAllCustomers();
 
+    List<AccountDto> getCustomerAccounts(long customerId);
 }
 

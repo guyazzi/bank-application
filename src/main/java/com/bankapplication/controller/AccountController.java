@@ -1,7 +1,7 @@
 package com.bankapplication.controller;
 
 import com.bankapplication.dto.AccountDto;
-import com.bankapplication.service.account.AccountServiceImpl;
+import com.bankapplication.service.account.IAccountService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +17,7 @@ import java.util.List;
 @RequestMapping("/api/accounts")
 public class AccountController {
 
-    private final AccountServiceImpl accountService;
+    private final IAccountService accountService;
 
     @GetMapping("/")
     public ResponseEntity<List<AccountDto>> getAllAccounts() {
