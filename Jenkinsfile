@@ -40,7 +40,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-            withCredentials([usernamePassword(credentialsId: 'git-pass-credentials-ID',x
+            withCredentials([usernamePassword(credentialsId: 'git-pass-credentials-ID',
              passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
                 sh('git push -u origin master https://${GIT_USERNAME}:${GIT_PASSWORD}@<https://github.com/guyazzi/bank-application/> ')
             }
