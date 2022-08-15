@@ -22,8 +22,8 @@ public class AccountController {
         return ResponseEntity.status(HttpStatus.OK).body(accountService.getAllAccounts());
     }
 
-    @GetMapping("/account/{id}")
-    public ResponseEntity<AccountDto> getAccountById(@RequestParam("Account Id") Long accountId) {
+    @GetMapping("/account/")
+    public ResponseEntity<AccountDto> getAccountById(@RequestParam("id") Long accountId) {
         return ResponseEntity.status(HttpStatus.OK).body(accountService.getAccountById(accountId));
     }
 

@@ -19,17 +19,17 @@ public class CustomerController {
     private final ICustomerService customerService;
 
     @GetMapping("/")
-    public ResponseEntity<List<CustomerDto>> getAllCustomer() {
+    public ResponseEntity<List<CustomerDto>> getAllCustomers() {
         return ResponseEntity.status(HttpStatus.OK).body(customerService.getAllCustomers());
     }
 
-    @GetMapping("/customer/{id}")
-    public ResponseEntity<CustomerDto> getCustomerById(@RequestParam("Customer Id") Long customerId) {
+    @GetMapping("/customer/")
+    public ResponseEntity<CustomerDto> getCustomerById(@RequestParam("id") Long customerId) {
         return ResponseEntity.status(HttpStatus.OK).body(customerService.getCustomerById(customerId));
     }
 
-    @GetMapping("/customer/accounts/{id}")
-    public ResponseEntity<List<AccountDto>> getCustomerAccounts(@RequestParam("Customer Id") Long customerId) {
+    @GetMapping("/customer/accounts/")
+    public ResponseEntity<List<AccountDto>> getCustomerAccounts(@RequestParam("id") Long customerId) {
         return ResponseEntity.status(HttpStatus.OK).body(customerService.getCustomerAccounts(customerId));
     }
 }
