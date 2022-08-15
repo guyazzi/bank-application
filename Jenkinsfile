@@ -22,6 +22,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
+                 bat(/"${M2_HOME}\bin\mvn" verify -Dintegration-tests.skip=true/)
             }
         }
         stage('Deploy') {
