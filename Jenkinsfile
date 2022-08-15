@@ -25,6 +25,18 @@ pipeline {
                  bat(/"${M2_HOME}\bin\mvn" verify -Dintegration-tests.skip=true/)
             }
         }
+
+        stage('Sonar scan execution') {
+                    // Run the sonar scan
+                    steps {
+                        script {
+                            withSonarQubeEnv {
+                                bat "'${M2_HOME}\bin\mvn'  verify sonar:sonar -Dintegration-tests.skip=true -Dmaven.test.failure.ignore=true"
+                            }
+                        }
+                    }
+                }
+
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
