@@ -15,7 +15,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                bat (/'mvn clean package'/)
+                bat (/'${maven}\bin\mvn clean package'/)
 
             }
         }
