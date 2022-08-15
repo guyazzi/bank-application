@@ -15,7 +15,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                bat (/"${M2_HOME}\bin\mvn" clean package/)
+                bat (/"${M2_HOME}\bin\mvn" -Dunit-tests.skip=true clean install/)
 
             }
         }
