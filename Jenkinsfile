@@ -31,7 +31,7 @@ pipeline {
                     steps {
                         script {
                             withSonarQubeEnv {
-                                bat "'${M2_HOME}\bin\mvn'  verify sonar:sonar -Dintegration-tests.skip=true -Dmaven.test.failure.ignore=true"
+                                bat (/"${M2_HOME}\bin\mvn"  verify sonar:sonar -Dintegration-tests.skip=true -Dmaven.test.failure.ignore=true/)
                             }
                         }
                     }
