@@ -1,9 +1,12 @@
 package com.bankapplication.service.account;
 
 import com.bankapplication.dto.AccountDto;
+import com.bankapplication.model.AccountType;
+import com.bankapplication.model.AccountTypeEnum;
 import com.bankapplication.repository.IAccountRepository;
-import com.bankapplication.repository.model.Account;
-import com.bankapplication.util.AccountMapper;
+import com.bankapplication.model.Account;
+import com.bankapplication.dto.mapper.AccountMapper;
+import com.bankapplication.repository.IAccountTypeRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +20,7 @@ public class AccountServiceImpl implements IAccountService {
 
 
     private final IAccountRepository accountRepository;
+    private final IAccountTypeRepository accountTypeRepository;
     private final AccountMapper accountMapper;
 
 
@@ -32,5 +36,17 @@ public class AccountServiceImpl implements IAccountService {
         return accounts.stream()
                 .map(accountMapper::toDto)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public AccountDto addAccount(AccountDto accountDto) {
+        var account = accountMapper.toEntity(accountDto);
+        return accountMapper.toDto(accountRepository.save(account));
+    }
+
+    @Override
+    public double getAccountFeesByType(AccountTypeEnum type) {
+        AccountType accountType = accountTypeRepository.findByType(type);
+        return accountType.getFees();
     }
 }

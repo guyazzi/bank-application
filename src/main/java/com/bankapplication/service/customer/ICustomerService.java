@@ -12,5 +12,7 @@ public interface ICustomerService {
     List<CustomerDto> getAllCustomers();
 
     List<AccountDto> getCustomerAccounts(long customerId);
+
+    CustomerDto addCustomer(CustomerDto customerDto);
 }
 

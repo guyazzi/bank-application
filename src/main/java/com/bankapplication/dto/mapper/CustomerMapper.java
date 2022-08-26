@@ -1,7 +1,7 @@
-package com.bankapplication.util;
+package com.bankapplication.dto.mapper;
 
 import com.bankapplication.dto.CustomerDto;
-import com.bankapplication.repository.model.Customer;
+import com.bankapplication.model.Customer;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")

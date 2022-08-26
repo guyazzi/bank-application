@@ -1,5 +1,6 @@
 package com.bankapplication.dto;
 
+import com.bankapplication.model.AccountType;
 import lombok.Builder;
 import lombok.Data;
 
@@ -8,7 +9,7 @@ import lombok.Data;
 public class AccountDto {
 
     private long id;
-    private String type;
+    private AccountType type;
     private String currency;
     private double balance;
 
