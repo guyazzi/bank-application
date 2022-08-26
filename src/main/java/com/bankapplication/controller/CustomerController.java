@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @AllArgsConstructor
@@ -31,5 +32,10 @@ public class CustomerController {
     @GetMapping("/customer/accounts/")
     public ResponseEntity<List<AccountDto>> getCustomerAccounts(@RequestParam("id") Long customerId) {
         return ResponseEntity.status(HttpStatus.OK).body(customerService.getCustomerAccounts(customerId));
+    }
+
+    @PostMapping("/add")
+    public ResponseEntity<CustomerDto> addCustomer(@Valid @RequestBody CustomerDto customerDto) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(customerService.addCustomer(customerDto));
     }
 }

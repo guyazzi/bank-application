@@ -3,9 +3,9 @@ package com.bankapplication.service.customer;
 import com.bankapplication.dto.AccountDto;
 import com.bankapplication.dto.CustomerDto;
 import com.bankapplication.repository.ICustomerRepository;
-import com.bankapplication.repository.model.Customer;
-import com.bankapplication.util.AccountMapper;
-import com.bankapplication.util.CustomerMapper;
+import com.bankapplication.model.Customer;
+import com.bankapplication.dto.mapper.AccountMapper;
+import com.bankapplication.dto.mapper.CustomerMapper;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -42,6 +42,12 @@ public class CustomerServiceImpl implements ICustomerService {
         return customerAccounts.getAccounts().stream()
                 .map(accountMapper::toDto)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public CustomerDto addCustomer(CustomerDto customerDto) {
+        var customer = customerMapper.toEntity(customerDto);
+        return customerMapper.toDto(customerRepository.save(customer));
     }
 
 }

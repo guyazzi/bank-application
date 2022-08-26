@@ -1,14 +1,11 @@
-package com.bankapplication.repository.model;
+package com.bankapplication.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "ACCOUNT")
@@ -20,16 +17,17 @@ import javax.persistence.Table;
 public class Account {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column
-    private String type;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "type_id")
+    private AccountType type;
 
     @Column
     private String currency;
 
     @Column
     private double balance;
-
 
 }

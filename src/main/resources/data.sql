@@ -1,0 +1,3 @@
+INSERT INTO ACCOUNT_TYPE (type,fees) VALUES ('Chequing',100);
+INSERT INTO ACCOUNT_TYPE (type,fees) VALUES ('Savings',500);
+INSERT INTO ACCOUNT_TYPE (type,fees) VALUES ('Business',1000);
